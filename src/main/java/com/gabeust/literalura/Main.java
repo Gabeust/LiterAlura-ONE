@@ -8,7 +8,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ * Componente principal que ejecuta el menú interactivo para la aplicación LiterAlura.
+ * Permite al usuario buscar y listar libros y autores mediante la consola.
+ */
 @Component
 public class Main {
 
@@ -21,7 +24,12 @@ public class Main {
         this.authorService = authorService;
         this.printerService = printerService;
     }
-
+    /**
+     * Método que se ejecuta automáticamente después de la creación del bean Spring.
+     * Muestra un menú en consola con diferentes opciones para interactuar con la aplicación.
+     *
+     * @throws Exception en caso de error general durante la ejecución del menú.
+     */
     @PostConstruct
     public void runMenu() throws Exception {
         Scanner scanner = new Scanner(System.in);
@@ -118,7 +126,7 @@ public class Main {
                             """);
                     System.out.print("👉 Ingrese una opción: ");
                     int languageOption = scanner.nextInt();
-                    scanner.nextLine(); // limpiar buffer
+                    scanner.nextLine(); // limpia buffer
 
                     String selectedLanguage;
                     switch (languageOption) {

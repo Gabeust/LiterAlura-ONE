@@ -6,9 +6,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+/**
+ * Servicio responsable de imprimir en consola información formateada
+ * sobre libros y autores.
+ */
 @Service
 public class BookPrinterService {
-
+    /**
+     * Imprime una lista de libros con detalles como título, autores,
+     * resúmenes, temas, idiomas y cantidad de descargas.
+     *
+     * @param books lista de DTOs de libros a imprimir
+     */
     public void printBooks(List<BookDTO> books) {
         if (books == null || books.isEmpty()) {
             System.out.println("📚 No se encontraron libros.");
@@ -32,7 +41,11 @@ public class BookPrinterService {
             System.out.println("⬇️ Descargas: " + book.download_count());
         }
     }
-
+    /**
+     * Imprime una lista de autores con sus detalles básicos.
+     *
+     * @param authors lista de DTOs de autores a imprimir
+     */
     public void printAuthors(List<AuthorDTO> authors) {
         if (authors == null || authors.isEmpty()) {
             System.out.println("✍️ No se encontraron autores.");
@@ -44,7 +57,11 @@ public class BookPrinterService {
             printAuthor(author); // reutiliza el método individual
         }
     }
-
+    /**
+     * Imprime la información detallada de un autor.
+     *
+     * @param author DTO del autor a imprimir
+     */
     public void printAuthor(AuthorDTO author) {
         System.out.println("👤 Nombre: " + author.name());
         System.out.println("📅 Año de nacimiento: " + (author.birthYear() != null ? author.birthYear() : "Desconocido"));
